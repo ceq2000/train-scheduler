@@ -2,9 +2,6 @@
 ### **Creator:** `Carlos Quinones`
 **Type of Project:** `Website`
 
-Started on: Sep 20th 2019
-Completed on: Sep 24th 2019
-
 ## Overview
 
 Train schedule application website that incorporates Firebase to host arrival and departure data. Moment.js is used to retrieve and manipulate the data. It provides up-to-date information about various trains, namely their arrival times and how many minutes remain until they arrive at their station. You can add new train to your scheduler with train number, line,	destination,	first departure	time, frequency, and	platform.
@@ -13,11 +10,9 @@ Train schedule application website that incorporates Firebase to host arrival an
 
 * [Link to the train scheduler website](https://ceq2000.github.io/train-scheduler/)
 
-* [Link to my GitHub train scheduler repository](https://github.com/ceq2000/train-scheduler/)
+* [Link to my portfolio](https://ceq2000.github.io/portfolio/portfolio2.html)
 
 * [Link to my GitHub (homepage)](https://github.com/ceq2000/)
-
-* [Link to my portfolio](https://ceq2000.github.io/portfolio/portfolio2.html)
 
 ## List of Technologies Used:
 
@@ -29,4 +24,3 @@ Train schedule application website that incorporates Firebase to host arrival an
 - Firebase
 - Git
 - GitHub
-# train-scheduler
