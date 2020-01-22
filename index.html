@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Train Scheduler</title>
+
+    <meta name="viewport" content="width=device-width" initial-scale=1.0">
+    <!-- Link to reset CSS to zero out browser defaults -->
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <!-- Link to custom CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- Link to Bootstrap 4 Beta CSS CDN -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <!-- Link to Font Awesome CSS CDN for Glpyhicons -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Header area -->
+        <div class="jumbotron jumbotron-fluid header">
+            <div class="container">
+                <h1 class="display-4">
+                    <i class="fa fa-train" aria-hidden="true"></i>
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    <i class="fa fa-train" aria-hidden="true"></i>
+                </h1>
+                <h1 class="display-4"><strong>Train Scheduler</strong></h1>
+                <h4 class="currentTime"></h4>
+            </div>
+        </div>
+    </div>
+    <!-- Main Content Area -->
+    <div class="container">
+        <div class="card text-white bg-dark mb-3">
+            <div class="card-header schedule-header">
+                <span style="color: #ffffff;">Train Schedule</span>
+            </div>
+            <div class="card-body" style="color:#ffffff">
+                <table class="table table-striped table-responsive-sm table-responsive-md train-schedule-table"
+                    style="color: #ffffff;">
+                    <thead class="train-schedule-head">
+                        <tr>
+                            <th scope="col">Train Name</th>
+                            <th scope="col">Destination</th>
+                            <th scope="col">Time to Arrival</th>
+                            <th scope="col">Frequency</th>
+                        </tr>
+                    </thead>
+                    <tbody id="train-schedule-body"></tbody>
+                </table>
+
+            </div>
+        </div>
+        <!-- Form Field Area -->
+        <div class="card text-white bg-dark mb-3">
+            <div class="card-header form-header shadow">
+                <span style="color: #ffffff;">Add Train to Schedule</span>
+            </div>
+            <div class="card-body">
+                <form novalidate>
+                    <div class="form-row">
+                        <!--  -->
+                        <div class="form-group col-sm-6">
+                            <label for="train-name">Train Name</label>
+                            <input type="text" class="form-control" id="train-name" maxlength=20 placeholder="Express"
+                                required />
+                            <div class="invalid-feedback">
+                                Please provide a Train Line (Name).
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="train-destination">Destination</label>
+                        <input type="text" class="form-control" id="train-destination" maxlength=20
+                            placeholder="City or Station Name" required />
+                        <div class="invalid-feedback">
+                            Please provide a Destination.
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-sm-4">
+                            <label for="first-train-time">First Departure (24hr format)</label>
+                            <input type="number" class="form-control" id="first-train-time" placeholder="0800"
+                                required />
+                            <div class="invalid-feedback">
+                                Please provide a Train's First Departure Time.
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="train-frequency">Frequency (minutes)</label>
+                            <input type="number" class="form-control" id="train-frequency" min="10" max="720"
+                                placeholder="30" required />
+                            <div class="invalid-feedback">
+                                Please provide a Train Frequency.
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-secondary btn-lg btn-block button-add">
+                        <b>Add Train</b>
+                    </button>
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-database.js"></script>
+
+    <!-- Link to jQuery & Popper CDN -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+
+    <!-- Link to momentjs CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.min.js"></script>
+
+    <!-- Link to Bootstrap 4 JS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <!-- Links to JS Files -->
+    <script type="text/javascript" src="assets/javascript/model.js"></script>
+    <script type="text/javascript" src="assets/javascript/view.js"></script>
+    <script type="text/javascript" src="assets/javascript/controller.js"></script>
+
+</body>
+
+</html>

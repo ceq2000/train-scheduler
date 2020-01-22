@@ -1,0 +1,35 @@
+/* Google Font Montserrat to override Bootstrap Default */
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+body {
+  font-family: "Montserrat", sans-serif;
+  color: #ffffff !important;
+}
+
+.jumbotron {
+  background-color: gray !important;
+  color: #ffffff !important;
+}
+.header {
+  color: #000;
+  text-align: center;
+}
+
+/* Train Schedule */
+.schedule-header {
+  background-color: grey !important;
+  /* color: #000; */
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* Form Field */
+.form-header {
+  background-color: grey !important;
+  color: #000;
+  font-weight: bold;
+}
+
+.button-add {
+  background-color: blue;
+}
